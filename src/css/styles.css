@@ -21,3 +21,42 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 270px;
+  height: 40px;
+  border-radius: 4px;
+  background: #fff;
+  padding: 0 16px;
+  margin-right: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+}
+input:hover {
+  color: #2e2f42;
+}
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  height: 40px;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+}
+button:hover {
+  background: #6c8cff;
+}
