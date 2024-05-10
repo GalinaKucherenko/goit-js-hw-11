@@ -6,12 +6,13 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 import { searchPictures } from './js/pixabay-api.js';
 import { listPictures } from './js/render-functions.js';
 
+const form = document.querySelector('.form');
 const input = document.querySelector('input[name="text"]');
-const searchButton = document.querySelector('button');
 const gallery = document.querySelector(".gallery");
 const loader = document.querySelector('.loader');
 
-searchButton.addEventListener('click', () => { // Додавання обробника подій для кнопки пошуку
+form.addEventListener('submit', (event) => { // Зміна обробника подій на сабміт форми
+    event.preventDefault(); // Запобігання стандартній поведінці подання форми
     const searchTerm = input.value.trim(); // Отримання введеного користувачем пошукового терміна
     if (searchTerm !== "") { // Перевірка наявності пошукового терміна
         loader.style.display = 'block'; // Показати елемент завантаження
@@ -31,10 +32,9 @@ searchButton.addEventListener('click', () => { // Додавання оброб�
             .finally(() => { // Після завершення пошуку, навіть у випадку помилки
                 loader.style.display = 'none'; // Приховати елемент завантаження
             });
-    } else {
-        iziToast.error({ message: 'Please enter a search term.', position: 'center' }); // Відображення повідомлення про помилку у разі порожнього пошукового терміна
-    }
+    } 
 });
+
 
 const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
